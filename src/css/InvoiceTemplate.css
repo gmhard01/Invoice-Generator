@@ -11,7 +11,8 @@
     ". invSum"
     "notes .";
     font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 0% 9%;                 
+    font-size: 110%;
+    margin: 3% 12%;                 
 }
 
 #title {
@@ -146,7 +147,7 @@ td > * {
 
 #subTotal, #taxLabelInput, #invTotal {
     margin-top: 1%;
-    margin-left: 42%;
+    margin-left: 43.5%;
 }
 
 #tax {
@@ -171,7 +172,7 @@ td > * {
     grid-area: notes;
     display: flex;
     flex-direction: column;
-    margin-top: 3%;
+    margin-top: 8%;
 }
 
 #notesTextArea {
@@ -196,7 +197,17 @@ td > * {
          border: none;
      }
 
+    input:-webkit-autofill, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active {
+        box-shadow: 0 0 0 30px white inset !important;
+    }
+
      input::placeholder, textarea::placeholder {
         color: transparent;
+    }
+
+    #subTotal, #taxLabelInput, #invTotal {
+        margin-left: 34%;
     }
   }
