@@ -12,6 +12,8 @@ export default function InvoiceTemplate() {
     const [rate, setRate] = useState(0);
     const itemTotal = qty * rate;
     const [subTotal, setSubTotal] = useState(0);
+    const [tax, setTax] = useState(0);
+    const invTotal = subTotal * (1+tax/100);
 
     function handleAdd(e) {
         e.preventDefault();
@@ -104,7 +106,21 @@ export default function InvoiceTemplate() {
                 <span id="total">{itemTotal.toFixed(2)}</span>
                 <input type="submit" value="Add Item"></input>
             </form>
-            <span id="subTotal">Subtotal: {subTotal.toFixed(2)}</span>
+            <div id="invSummary">
+                <span id="subTotal">Subtotal : {subTotal.toFixed(2)}</span>
+                <div id="taxLabelInput">
+                    <label for="tax">Sales Tax (%) :</label>
+                    <input 
+                        id="tax"
+                        name="tax" 
+                        type="number"
+                        value={tax}
+                        onChange={((e) => setTax(e.target.value))}>
+                    </input>
+                </div>
+                <span id="invTotal">TOTAL : ${invTotal.toFixed(2)}</span>
+            </div>
+            
         </div>
     )
 }

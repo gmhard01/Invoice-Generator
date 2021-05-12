@@ -8,7 +8,7 @@
     "lineItemTable lineItemTable"
     "hline hline"
     "form form"
-    ". subTotal";
+    ". invSum";
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0% 8%;                 
 }
@@ -98,7 +98,7 @@
 
 #desc {
     width: 35%;
-    margin-right: 10%;
+    margin-right: 8%;
     border-radius: 5px;
     resize: none;
 }
@@ -106,7 +106,7 @@
 #qty {
     width: 8%;
     height: 60%;
-    margin-right: 8.5%;
+    margin-right: 5%;
     text-align: center;
     border-radius: 5px;
 }
@@ -114,7 +114,7 @@
 #rate {
     width: 8%;
     height: 60%;
-    margin-right: 13%;
+    margin-right: 12%;
     text-align: center;
     border-radius: 5px;
 }
@@ -136,11 +136,19 @@ td > * {
     margin-top: 3%;
 }
 
-#subTotal {
-    grid-area: subTotal;
-    text-align: right;
-    margin-top: 3%;
-    margin-right: 29%;
+#invSummary {
+    grid-area: invSum;
+    display: flex;
+    flex-direction: column;
+}
+
+#subTotal, #taxLabelInput, #invTotal {
+    margin-top: 1%;
+    margin-left: 42%;
+}
+
+#invTotal {
+    font-weight: bold;
 }
 
 .line {
