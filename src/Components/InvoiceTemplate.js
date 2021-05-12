@@ -9,9 +9,9 @@ export default function InvoiceTemplate() {
     const invDate = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
     const [desc, setDesc] = useState("");
     const [qty, setQty] = useState(1);
-    const [rate, setRate] = useState(0.00);
+    const [rate, setRate] = useState(0);
     const itemTotal = qty * rate;
-    const [subTotal, setSubTotal] = useState(0.00);
+    const [subTotal, setSubTotal] = useState(0);
 
     function handleAdd(e) {
         e.preventDefault();
@@ -34,6 +34,10 @@ export default function InvoiceTemplate() {
         setDesc("");
         setQty(1);
         setRate(0.00);
+    }
+
+    function clearInput(e) {
+        e.target.value = "";
     }
 
     return (
@@ -74,14 +78,14 @@ export default function InvoiceTemplate() {
                 </thead>
                 <LineItemList items={lineItems}/>
             </table>
+            <hr class="line"></hr>
             <form id="lineItemForm"onSubmit={handleAdd}>
-                <input
+                <textarea
                     id="desc"
-                    type="text"
                     placeholder="Enter Item Description"
                     value={desc}
                     onChange={(e) => setDesc(e.target.value)}>
-                </input>
+                </textarea>
                 <input
                     id="qty"
                     type="number"
@@ -94,6 +98,7 @@ export default function InvoiceTemplate() {
                     type="number"
                     step="0.01"
                     value={rate}
+                    onFocus={(e) => clearInput(e)}
                     onChange={(e) => setRate(e.target.value)}>
                 </input>
                 <span id="total">{itemTotal.toFixed(2)}</span>

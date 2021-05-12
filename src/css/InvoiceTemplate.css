@@ -6,6 +6,7 @@
     "from title"
     "to invInfo"
     "lineItemTable lineItemTable"
+    "hline hline"
     "form form"
     ". subTotal";
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -34,8 +35,8 @@
 
 .toFrom input {
     width: 50%;
-    margin-bottom: 1%;
-    border: none;
+    margin-bottom: 2%;
+    border-radius: 5px;
 }
 
 #invoiceInfo {
@@ -47,8 +48,16 @@
 }
 
 #invInfoLeft {
+    display: flex;
+    flex-direction: column;
     font-weight: bold;
     margin-right: 5%;
+}
+
+#invInfoRight {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
 }
 
 #invInfoRight input[type="checkbox"] {
@@ -58,7 +67,7 @@
 }
 
 #invInfoRight input {
-    border: none;
+    border-radius: 5px;
 }
 
 #lineItemTable {
@@ -83,41 +92,77 @@
 
 #lineItemForm {
     grid-area: form;
-    margin-top: 1%;
+    display: flex;
+    align-items: center;
 }
 
 #desc {
     width: 35%;
     margin-right: 10%;
+    border-radius: 5px;
+    resize: none;
 }
 
 #qty {
-    width: 5%;
+    width: 8%;
+    height: 60%;
     margin-right: 8.5%;
     text-align: center;
+    border-radius: 5px;
 }
 
 #rate {
-    width: 5%;
+    width: 8%;
+    height: 60%;
     margin-right: 13%;
     text-align: center;
+    border-radius: 5px;
 }
 
 #total {
     margin-right: 6%;
 }
 
-td > * {
-    margin-top: 3%;
+#lineItemForm input[type="submit"] {
+    height: 60%;
 }
 
-tr {
-    border-bottom: thin;
+td {
+    word-wrap: break-word;
+    max-width: 300px;
+}
+
+td > * {
+    margin-top: 3%;
 }
 
 #subTotal {
     grid-area: subTotal;
     text-align: right;
     margin-top: 3%;
-    margin-right: 34%;
+    margin-right: 29%;
 }
+
+.line {
+    grid-area: hline;
+    height: 2px;
+    background-color: black;
+    border: 0;
+    width: 100%;
+}
+
+@media print {
+    @page { margin: 0; }
+
+    * {
+        -webkit-print-color-adjust: exact;
+     }
+
+     form {
+         visibility: hidden;
+     }
+
+     input, textarea {
+         border: none;
+     }
+  }
