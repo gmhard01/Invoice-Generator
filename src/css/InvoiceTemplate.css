@@ -1,0 +1,123 @@
+#gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "from title"
+    "to invInfo"
+    "lineItemTable lineItemTable"
+    "form form"
+    ". subTotal";
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0% 8%;                 
+}
+
+#title {
+    grid-area: title;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 2.5rem;
+}
+
+#fromInfo {
+    grid-area: from;
+}
+
+#toInfo {
+    grid-area: to;
+}
+
+.toFrom {
+    display: flex;
+    flex-direction: column;
+}
+
+.toFrom input {
+    width: 50%;
+    margin-bottom: 1%;
+    border: none;
+}
+
+#invoiceInfo {
+    grid-area: invInfo;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#invInfoLeft {
+    font-weight: bold;
+    margin-right: 5%;
+}
+
+#invInfoRight input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-left: 0px;
+}
+
+#invInfoRight input {
+    border: none;
+}
+
+#lineItemTable {
+    grid-area: lineItemTable;
+    border-spacing: 0px;
+    margin-top: 3%;
+}
+
+#lineItemTable tr td {
+    padding-left: 2%;
+}
+
+#tableHeader {
+    background-color: grey;
+    color: white;
+}
+
+#tableHeader th {
+    text-align: left;
+    padding-left: 2%;
+}
+
+#lineItemForm {
+    grid-area: form;
+    margin-top: 1%;
+}
+
+#desc {
+    width: 35%;
+    margin-right: 10%;
+}
+
+#qty {
+    width: 5%;
+    margin-right: 8.5%;
+    text-align: center;
+}
+
+#rate {
+    width: 5%;
+    margin-right: 13%;
+    text-align: center;
+}
+
+#total {
+    margin-right: 6%;
+}
+
+td > * {
+    margin-top: 3%;
+}
+
+tr {
+    border-bottom: thin;
+}
+
+#subTotal {
+    grid-area: subTotal;
+    text-align: right;
+    margin-top: 3%;
+    margin-right: 34%;
+}
