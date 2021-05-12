@@ -109,18 +109,23 @@ export default function InvoiceTemplate() {
             <div id="invSummary">
                 <span id="subTotal">Subtotal : {subTotal.toFixed(2)}</span>
                 <div id="taxLabelInput">
-                    <label for="tax">Sales Tax (%) :</label>
-                    <input 
+                    <label for="tax">Sales Tax ( <span> </span>
+                        <input 
                         id="tax"
                         name="tax" 
                         type="number"
                         value={tax}
                         onChange={((e) => setTax(e.target.value))}>
-                    </input>
+                        </input> %) :
+                    </label>
+                    <span> {(subTotal * tax/100).toFixed(2)}</span>
                 </div>
                 <span id="invTotal">TOTAL : ${invTotal.toFixed(2)}</span>
             </div>
-            
+            <div id="notes">
+                <span>Notes :</span><br></br>
+                <textarea id="notesTextArea" placeholder="Notes..."></textarea>
+            </div>
         </div>
     )
 }

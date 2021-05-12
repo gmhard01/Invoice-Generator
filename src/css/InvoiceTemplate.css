@@ -8,9 +8,10 @@
     "lineItemTable lineItemTable"
     "hline hline"
     "form form"
-    ". invSum";
+    ". invSum"
+    "notes .";
     font-family: Georgia, 'Times New Roman', Times, serif;
-    margin: 0% 8%;                 
+    margin: 0% 9%;                 
 }
 
 #title {
@@ -140,11 +141,18 @@ td > * {
     grid-area: invSum;
     display: flex;
     flex-direction: column;
+    margin-top: 3%;
 }
 
 #subTotal, #taxLabelInput, #invTotal {
     margin-top: 1%;
     margin-left: 42%;
+}
+
+#tax {
+    width: 15%;
+    border-radius: 5px;
+    text-align: right;
 }
 
 #invTotal {
@@ -157,6 +165,20 @@ td > * {
     background-color: black;
     border: 0;
     width: 100%;
+}
+
+#notes {
+    grid-area: notes;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+}
+
+#notesTextArea {
+    height: 200%;
+    border-radius: 5px;
+    margin-top: -3%;
+    resize: vertical;
 }
 
 @media print {
@@ -173,4 +195,8 @@ td > * {
      input, textarea {
          border: none;
      }
+
+     input::placeholder, textarea::placeholder {
+        color: transparent;
+    }
   }
