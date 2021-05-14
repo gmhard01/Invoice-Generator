@@ -42,6 +42,10 @@ export default function InvoiceTemplate() {
         e.target.value = "";
     }
 
+    function print() {
+        window.print();
+    }
+
     return (
         <div id="gridContainer">
             <div id="fromInfo" class="toFrom">
@@ -125,6 +129,9 @@ export default function InvoiceTemplate() {
             <div id="notes">
                 <span>Notes :</span><br></br>
                 <textarea id="notesTextArea" placeholder="Notes..."></textarea>
+            </div>
+            <div id="printDiv">
+                <button id="printBtn" onClick={print}>PRINT INVOICE</button>
             </div>
         </div>
     )
