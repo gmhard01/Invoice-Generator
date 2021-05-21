@@ -1,1 +1,1 @@
-https://free-invoice-creator.net/
+http://free-invoice-creator.net/
