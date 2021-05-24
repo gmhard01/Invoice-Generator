@@ -35,7 +35,7 @@ export default function InvoiceTemplate() {
     function resetForm() {
         setDesc("");
         setQty(1);
-        setRate(0.00);
+        setRate(0);
     }
 
     function clearInput(e) {
@@ -92,6 +92,7 @@ export default function InvoiceTemplate() {
                     value={desc}
                     onChange={(e) => setDesc(e.target.value)}>
                 </textarea>
+                <InputLabel width={window.screen.width} id="qty"/>
                 <input
                     id="qty"
                     type="number"
@@ -99,6 +100,7 @@ export default function InvoiceTemplate() {
                     value={qty}
                     onChange={(e) => setQty(e.target.value)}>
                 </input>
+                <InputLabel width={window.screen.width} id="rate" />
                 <input
                     id="rate"
                     type="number"
@@ -133,6 +135,9 @@ export default function InvoiceTemplate() {
             <div id="printDiv">
                 <button id="printBtn" onClick={print}>PRINT INVOICE</button>
             </div>
+            <footer>
+                Created by Graham Hardaway
+            </footer>
         </div>
     )
 }
@@ -158,5 +163,18 @@ function LineItemList(props) {
                         rate= {parseFloat(item.rate).toFixed(2)} 
                         total= {item.total.toFixed(2)} />
         })
+    )
+}
+
+function InputLabel(props) {
+    if (props.width > 480) {
+        return (
+            ""
+        )
+    }
+    else return (
+        <label for={props.id}>
+            Enter Item {props.id === "qty" ? "Quantity" : "Rate"}
+        </label>
     )
 }

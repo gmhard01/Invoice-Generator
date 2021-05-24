@@ -10,7 +10,8 @@
     "form form"
     ". invSum"
     "notes ."
-    "print print";
+    "print print"
+    "footer footer";
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 110%;
     margin: 3% 12%;                 
@@ -195,32 +196,138 @@ td > * {
     resize: vertical;
 }
 
+footer {
+    grid-area: footer;
+    margin-top: 4%;
+    font-size: 70%;
+    color: grey;
+    text-align: center;
+}
+
+@media only screen and (max-device-width: 480px) {
+#gridContainer {
+    grid-template-columns: 80vw;
+    grid-template-areas: 
+    "title"
+    "from"
+    "to"
+    "invInfo"
+    "lineItemTable"
+    "hline"
+    "form"
+    "invSum"
+    "notes"
+    "print"
+    "footer";
+    font-size: 95%;
+    margin: 3% 10%;               
+}
+
+#title {
+    justify-content: space-around;
+}
+
+.toFrom input {
+    width: 75vw;
+    height: 2em;
+}
+
+#invoiceInfo {
+    margin-top: 1.5em;
+    margin-left: 0em;
+    justify-content: flex-start;
+}
+
+#invInfoRight {
+    margin-top: 0px;
+}
+
+#invInfoRight input[type="checkbox"] {
+    margin-top: -5%;
+}
+
+#invInfoRight input[type="text"], #invInfoRight input[type="date"] {
+    height: 1.4em;
+}
+
+#lineItemTable {
+    margin-top: 5%;
+}
+
+#tableHeader {
+    font-size: .85em;
+}
+
+#lineItemForm {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#lineItemForm > * {
+    margin-bottom: .5em;
+}
+
+#desc {
+    height: 8em;
+    width: 75vw;
+}
+
+#qty, #rate {
+    width: 75vw;
+}
+
+#total {
+    align-self: center;
+}
+
+#lineItemForm input[type="submit"] {
+    align-self: center;
+    width: 10em;
+}
+
+#invSummary > * {
+    margin-left: 0px;
+}
+
+#printDiv {
+    margin-top: .5em;
+    margin-bottom: .5em;
+    display: flex;
+    justify-content: center;
+}
+
+#printBtn {
+    height: 3.5em;
+}
+
+}
+
 @media print {
-    @page { margin: 0; }
+@page { margin: 0; }
 
-    * {
-        -webkit-print-color-adjust: exact;
-     }
+* {
+    -webkit-print-color-adjust: exact;
+}
 
-     form, #printBtn {
-         visibility: hidden;
-     }
+form, #printBtn, footer {
+    visibility: hidden;
+}
 
-     input, textarea {
-         border: none;
-     }
+input, textarea {
+    border: none;
+}
 
-    input:-webkit-autofill, 
-    input:-webkit-autofill:focus, 
-    input:-webkit-autofill:active {
-        box-shadow: 0 0 0 30px white inset !important;
-    }
+input:-webkit-autofill, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px white inset !important;
+}
 
-     input::placeholder, textarea::placeholder {
-        color: transparent;
-    }
+input::placeholder, textarea::placeholder {
+    color: transparent;
+}
 
-    #subTotal, #taxLabelInput, #invTotal {
-        margin-left: 34%;
-    }
-  }
+#subTotal, #taxLabelInput, #invTotal {
+margin-left: 34%;
+}
+}
